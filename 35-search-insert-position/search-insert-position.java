@@ -9,7 +9,7 @@ class Solution {
             }
         }
 
-        return nums.length;
+        return nums.length;  /*returns the correct insertion position when the target is larger than all elements.*/
     }
 }
 
