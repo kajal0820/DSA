@@ -10,41 +10,45 @@
  */
 class Solution {
     public boolean isPalindrome(ListNode head) {
-        if (head == null || head.next == null)
+        if(head==null || head.next==null){
             return true;
+        }
+        ListNode mid=midOfLL(head);
+        ListNode secondhalf= reverse(mid);
 
-        // Step 1: Find middle of the list
-        ListNode slow = head, fast = head;
+        ListNode first=head;
+        ListNode second=secondhalf;
+        while(second!=null){
+            if(first.val!=second.val){
+                return false;
+            }
+            first=first.next;
+            second=second.next;
+        } 
+        return true;   
+        }
+
+
+     private ListNode midOfLL(ListNode head) {
+        ListNode slow = head;
+        ListNode fast = head;
+
         while (fast != null && fast.next != null) {
             slow = slow.next;
             fast = fast.next.next;
         }
-
-        // Step 2: Reverse second half
-        ListNode secondHalf = reverse(slow);
-        ListNode firstHalf = head;
-
-        // Step 3: Compare both halves
-        while (secondHalf != null) {
-            if (firstHalf.val != secondHalf.val)
-                return false;
-
-            firstHalf = firstHalf.next;
-            secondHalf = secondHalf.next;
-        }
-
-        return true;
+        return slow;
     }
 
-    // Helper function to reverse a linked list
-    private ListNode reverse(ListNode head) {
-        ListNode prev = null;
-        while (head != null) {
-            ListNode next = head.next;
-            head.next = prev;
-            prev = head;
-            head = next;
-        }
-        return prev;
+private ListNode reverse(ListNode head){
+    ListNode prev=null;
+    ListNode curr=head;
+    while(curr!=null){
+        ListNode temp=curr.next;
+        curr.next=prev;
+        prev=curr;
+        curr=temp;
     }
+    return prev;
+}
 }
