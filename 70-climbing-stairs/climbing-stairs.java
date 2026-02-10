@@ -2,11 +2,7 @@ class Solution {
     int[] dp;
     public int climbStairs(int n) {
         dp = new int[n+1];
-        // if(n==0) return 1;
-        // if(n<0) return 0;
-        // int left = climbStairs(n-1);
-        // int right = climbStairs(n-2);
-        // return left +right;
+       
 return climb(n);
         
     }
@@ -19,3 +15,8 @@ return climb(n);
          return ans;
     }
 }
+ // if(n==0) return 1;
+        // if(n<0) return 0;
+        // int left = climbStairs(n-1);
+        // int right = climbStairs(n-2);
+        // return left +right;
