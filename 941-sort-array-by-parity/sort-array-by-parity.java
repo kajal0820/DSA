@@ -8,10 +8,10 @@ class Solution {
 
         for(int i = 0; i < nums.length; i++){
 
-            if(nums[i] % 2 == 0){   // even
+            if(nums[i] % 2 == 0){   
                 ans[left++] = nums[i];
             }
-            else{                   // odd
+            else{                   
                 ans[right--] = nums[i];
             }
         }
