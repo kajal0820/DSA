@@ -11,10 +11,10 @@ class Solution {
                 count++;
             }
             if (right - left + 1 > k) {
-                if (isVowel(s.charAt(left))) {
+                if (isVowel(s.charAt(left))) {  // to exclude the leftvowel count , we aslo reduce the count of vowel counted at the left index 
                     count--;
                 }
-                left++;
+                left++; // and then we eventually shrink the array
             }
             if (right - left + 1 == k) {
                 max = Math.max(max, count);
