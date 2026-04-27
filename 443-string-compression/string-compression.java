@@ -8,11 +8,13 @@ class Solution {
             if (i < chars.length - 1 && chars[i] == chars[i + 1]) {
                 count++;
             } else {
-                chars[write++] = chars[i];
+                chars[write] = chars[i];
+                write++;
                 if (count > 1) {
-                    String cnt = String.valueOf(count);
-                    for (char c : cnt.toCharArray()) {
-                        chars[write++] = c;
+                    String cnt = String.valueOf(count); // converts number to string
+                    for (char c : cnt.toCharArray()) {  //Converts string → char array
+                        chars[write] = c; //Loop through each digit
+                        write++;  //Write each digit into original array
                     }
                 }
 
