@@ -1,28 +1,17 @@
-import java.util.*;
-
 class Solution {
     public String largestNumber(int[] nums) {
-        String[] arr = new String[nums.length];
-        
-        // Step 1: Convert to String
-        for (int i = 0; i < nums.length; i++) {
-            arr[i] = String.valueOf(nums[i]);
+        String [] ans = new String[nums.length];
+        for(int i =0;i<nums.length;i++){
+            ans[i]= String.valueOf(nums[i]);
         }
-        
-        // Step 2: Custom Sort
-        Arrays.sort(arr, (a, b) -> (b + a).compareTo(a + b));
-        
-        // Step 3: Edge case
-        if (arr[0].equals("0")) {
+        Arrays.sort(ans,(a,b)-> (b+a).compareTo(a+b));
+       if (ans[0].equals("0")) {
             return "0";
         }
-        
-        // Step 4: Build result
-        StringBuilder result = new StringBuilder();
-        for (String s : arr) {
-            result.append(s);
+        StringBuilder sb = new StringBuilder();
+        for(String s: ans){
+            sb.append(s);
         }
-        
-        return result.toString();
-    }
+        return sb.toString();
+}
 }
